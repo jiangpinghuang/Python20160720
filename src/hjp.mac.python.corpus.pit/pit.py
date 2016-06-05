@@ -104,3 +104,4 @@ if __name__ == '__main__':
     trainDev(dev, wdev) 
     testData(test, label, wtest)
     
+    
