@@ -1,7 +1,7 @@
 # process pit for treeLSTM.
 
 import random
-
+import math
 # read file
 def trainDev(path, wpath):
     index = 0
@@ -90,6 +90,17 @@ def testData(path, wlabel, wpath):
         f.write(str(i+1) + "\t" + sent[i] + "\t" + label[i] + "\n")
     f.close()
 
+def sentLength(path):
+    for line in open(path, 'r'):
+        strs = line.split("\t")
+        str1 = strs[2].split(" ")
+        str2 = strs[3].split(" ")
+        step = abs(len(str1) - len(str2))
+        if step > 10:
+            #print line
+            print 'sent1: ', strs[2]
+            print 'sent2: ', strs[3]
+            print line
 
 if __name__ == '__main__':
     train = '/home/hjp/Workshop/Model/data/pit/pit_train.txt'
@@ -100,7 +111,9 @@ if __name__ == '__main__':
     label = '/home/hjp/Workshop/Model/data/pit/pit_test_label.txt'
     wtest = '/home/hjp/Workshop/Model/data/tmp/pit_test.txt'
 
-    trainDev(train, wtrain) 
-    trainDev(dev, wdev) 
-    testData(test, label, wtest)
+    #trainDev(train, wtrain) 
+    #trainDev(dev, wdev) 
+    #testData(test, label, wtest)
+    path = "/Volumes/whu/tmp/data/pit_train.txt"
+    sentLength(path)
     
