@@ -92,11 +92,11 @@ def testData(path, wlabel, wpath):
 
 
 if __name__ == '__main__':
-    train = '/home/hjp/Workshop/Model/data/pit/pit_train.txt'
+    train = '/home/hjp/Workshop/Model/data/pit/pit_trainn.txt'
     wtrain = '/home/hjp/Workshop/Model/data/tmp/pit_train.txt'
-    dev = '/home/hjp/Workshop/Model/data/pit/pit_dev.txt'
+    dev = '/home/hjp/Workshop/Model/data/pit/pit_devn.txt'
     wdev = '/home/hjp/Workshop/Model/data/tmp/pit_dev.txt'
-    test = '/home/hjp/Workshop/Model/data/pit/pit_test.txt'
+    test = '/home/hjp/Workshop/Model/data/pit/pit_testn.txt'
     label = '/home/hjp/Workshop/Model/data/pit/pit_test_label.txt'
     wtest = '/home/hjp/Workshop/Model/data/tmp/pit_test.txt'
 
