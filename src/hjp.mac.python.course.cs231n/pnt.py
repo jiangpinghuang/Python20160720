@@ -1,6 +1,5 @@
 # Python Numpy tutorial
 # Python
-from pip._vendor.pyparsing import nums
 
 def quicksort(arr):
     if len(arr) <= 1:
@@ -170,7 +169,7 @@ g = Greeter('Fred')
 g.greet()
 g.greet(loud=True)
 
-# numpy
+# Numpy
 # Arrays 
 import numpy as np
 
@@ -283,18 +282,97 @@ print v
 print v.T
 
 # Broadcasting
+x = np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12]])
+v = np.array([1,0,1])
+y = np.empty_like(x)
 
+for i in range(4):
+    y[i, :] = x[i, :] + v 
+print y 
 
+x = np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12]])
+v = np.array([1,0,1])
+vv = np.tile(v, (4,1))
+print vv
+y = x + vv 
+print y 
 
+x = np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12]])
+v = np.array([1,0,1])
+y = x + v 
+print y
 
+# some applications of broadcasting
+v = np.array([1,2,3])
+print v 
+w = np.array([4,5])
+print w 
+print np.reshape(v, (3,1)) * w 
+x = np.array([[1,2,3],[4,5,6]])
+print x + v 
+print ((x.T + w).T).T
+print x + np.reshape(w, (2,1))
+print x * 2
 
+# SciPy
+# Image operations
+# from scipy.misc import imread, imsave, imresize
+# img = imread('/Users/hjp/Downloads/hjp.jpg')
+# img_tinted = img * [1, 0.95, 0.9]
+# img_tinted = imresize(img_tinted, (300, 300))
+# imsave('/Users/hjp/Downloads/hjp1.jpg', img_tinted)
 
+# MATLAB files
 
+# Distance between points
+from scipy.spatial.distance import pdist, squareform
+x = np.array([[0,1],[1,0],[2,0]])
+print x
+d = squareform(pdist(x, 'euclidean'))
+print d 
 
+# Matplotlib
+# Plotting
+import matplotlib.pyplot as plt
+x = np.arange(0, 3 * np.pi, 0.1)
+y = np.sin(x)
+plt.plot(x,y)
+plt.show()
 
+x = np.arange(0, 3 * np.pi, 0.1)
+y_sin = np.sin(x)
+y_cos = np.cos(x)
+y_tan = np.tan(x)
+plt.plot(x, y_sin)
+plt.plot(x, y_cos)
+plt.plot(x, y_tan)
+plt.xlabel('x axis label')
+plt.ylabel('y axis label')
+plt.title('Sine and Cosine and Tan')
+plt.legend(['Sine', 'Cosine', 'Tan'])
+plt.show()
 
+# Subplots
+x = np.arange(0, 3 * np.pi, 0.1)
+y_sin = np.sin(x)
+y_cos = np.cos(x)
+plt.subplot(2,1,1)
+plt.plot(x, y_sin)
+plt.title('Sine')
+plt.subplot(2,1,2)
+plt.plot(x, y_cos)
+plt.title('Cosine')
+plt.show()
 
-
+# Images
+# from scipy.misc import imread, imresize
+# img = imread('/Users/hjp/Downloads/hjp.jpg')
+# img_tinted = img * [1, 0.95, 0.9]
+# plt.subplot(1,2,1)
+# plt.imshow(img)
+# plt.subplot(1,2,2)
+# plt.imshow(np.unit8(img_tinted))
+# plt.show()
 
 
 
