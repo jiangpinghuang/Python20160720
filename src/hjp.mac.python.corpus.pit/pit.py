@@ -2,6 +2,7 @@
 
 import random
 import math
+
 # read file
 def trainDev(path, wpath):
     index = 0
@@ -17,27 +18,27 @@ def trainDev(path, wpath):
         if strs[4].strip() == '(0, 5)':
             print '0.0000'
             print 'non-paraphrases'
-            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(1, 1.5), 3)) + "\t" + "non-paraphrases"
+            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(0, 0.1), 3)) + "\t" + "non-paraphrases"
         if strs[4].strip() == '(1, 4)':
             print '0.2000'
             print 'non-paraphrases'
-            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(1.501, 2.5), 3)) + "\t" + "non-paraphrases"
+            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(0.1, 0.3), 3)) + "\t" + "non-paraphrases"
         if strs[4].strip() == '(2, 3)':
             print '0.4000'
             print 'debatable'
-            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(2.501, 3.0), 3)) + "\t" + "debatable"
+            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(0.3, 0.5), 3)) + "\t" + "debatable"
         if strs[4].strip() == '(3, 2)':
             print '0.6000'  
             print 'paraphrases'
-            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(3.001, 3.5), 3)) + "\t" + "paraphrases"
+            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(0.5, 0.7), 3)) + "\t" + "paraphrases"
         if strs[4].strip() == '(4, 1)':
             print '0.8000'  
             print 'paraphrases'
-            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(3.501, 4.5), 3)) + "\t" + "paraphrases"
+            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(0.7, 0.9), 3)) + "\t" + "paraphrases"
         if strs[4].strip() == '(5, 0)':
             print '1.0000' 
             print 'paraphrases'  
-            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(4.501, 5.0), 3)) + "\t" + "paraphrases" 
+            sents = str(index) + "\t" + strs[2] + "\t" + strs[3] + "\t" + str(round(random.uniform(0.9, 1.0), 3)) + "\t" + "paraphrases" 
         print sents
         f.write(sents + '\n')
     f.close()
@@ -64,27 +65,27 @@ def testData(path, wlabel, wpath):
         if strs[1].strip() == '0.0000':
             print '0.0000'
             print 'non-paraphrases'
-            label.append(str(round(random.uniform(1, 1.5), 3)) + "\t" + "non-paraphrases")
+            label.append(str(round(random.uniform(0, 0.1), 3)) + "\t" + "non-paraphrases")
         if strs[1].strip() == '0.2000':
             print '0.2000'
             print 'non-paraphrases'
-            label.append(str(round(random.uniform(1.501, 2.5), 3)) + "\t" + "non-paraphrases")
+            label.append(str(round(random.uniform(0.1, 0.3), 3)) + "\t" + "non-paraphrases")
         if strs[1].strip() == '0.4000':
             print '0.4000'
             print 'non-paraphrases'
-            label.append(str(round(random.uniform(2.501, 3.0), 3)) + "\t" + "non-paraphrases")          
+            label.append(str(round(random.uniform(0.3, 0.5), 3)) + "\t" + "non-paraphrases")          
         if strs[1].strip() == '0.6000':
             print '0.6000'  
             print 'debatable'
-            label.append(str(round(random.uniform(3.001, 3.5), 3)) + "\t" + "debatable")           
+            label.append(str(round(random.uniform(0.5, 0.7), 3)) + "\t" + "debatable")           
         if strs[1].strip() == '0.8000':
             print '0.8000'  
             print 'paraphrases'
-            label.append(str(round(random.uniform(3.501, 4.5), 3)) + "\t" + "paraphrases")            
+            label.append(str(round(random.uniform(0.7, 0.9), 3)) + "\t" + "paraphrases")            
         if strs[1].strip() == '1.0000':
             print '1.0000' 
             print 'paraphrases'  
-            label.append(str(round(random.uniform(4.501, 5.0), 3)) + "\t" + "paraphrases")            
+            label.append(str(round(random.uniform(0.9, 1.0), 3)) + "\t" + "paraphrases")            
         index += 1
     for i in range(index):
         f.write(str(i+1) + "\t" + sent[i] + "\t" + label[i] + "\n")
@@ -114,8 +115,8 @@ if __name__ == '__main__':
     #trainDev(train, wtrain) 
     #trainDev(dev, wdev) 
     #testData(test, label, wtest)
-    path = "/Volumes/whu/tmp/data/pit_train.txt"
-    sentLength(path)
+    #path = "/Volumes/whu/tmp/data/pit_train.txt"
+    #sentLength(path)
     trainDev(train, wtrain) 
     trainDev(dev, wdev) 
     testData(test, label, wtest)
